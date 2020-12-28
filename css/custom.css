@@ -190,7 +190,7 @@ button:hover{
     right: 0;
     top: -35px;
     z-index: 6;
-    animation:animateleft 0.4s;
+    animation:animateleft 0.3s;
     opacity: 0;
     
     /* visibility: hidden; */
@@ -201,7 +201,7 @@ button:hover{
   /* Show the tooltip text when you mouse over the tooltip container */
   .tooltip:hover .tooltiptext {
     opacity: 0.8;
-    animation:animateright 0.4s
+    animation:animateright 0.3s
   }
   @keyframes animateright{from{right:-10px;opacity:0} to{right:0;opacity:0.8}}
 
