@@ -66,7 +66,7 @@ body {
 }
 
 .main {
-    background-color: #3CADA9;
+    background: linear-gradient(to bottom right,#38EEFF , #3897FF );
     padding: 16px;
     margin: 8vh auto;
     width: 90%;
@@ -159,8 +159,8 @@ button:hover{
   }
   #password:hover{
       cursor: pointer;
-        background: #0E6B64 !important;
-        color: #92FFF2 !important;
+        background: #0e396b !important;
+        color: #38eeff !important;
         transition-duration: 0.3s;
         content: "Copy to Clipboard";
   }
