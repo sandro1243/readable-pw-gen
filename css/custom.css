@@ -89,6 +89,7 @@ button{
     transition-duration: 0.3s;
     border-radius: 8px;
     color: #ffd0e6!important;
+    outline: none;
 }
 
 button:hover{

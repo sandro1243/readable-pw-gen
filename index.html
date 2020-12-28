@@ -46,8 +46,9 @@
 </html>
 <script>
     var tooltip = document.getElementById('tooltip');
+    var pw = document.getElementById('password');
     function copyToClipboard(){
-        var pw = document.getElementById('password');
+        
         
 
         pw.select();
@@ -62,14 +63,26 @@
     }
     function generatePW() {
         var strength = document.getElementById('strength').value;
-        var pw = document.getElementById('password');
-        var pass = "";
+        
+        
 
         tooltip.textContent = "Copy to Clipboard";
 
+        if (strength >= 4){
+            generateLarge(strength);
+        } else {
+            generateSmall(strength);
+        }
+        
+        
+
+    }
+    function generateLarge(strength){
         var a = ['a', 'e', 'i', 'o', 'u'];
         var b = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
         var s = ['!','%','-','_','&','#','?','(',')','*',];
+
+        var pass = "";
 
         for (i = 0; i < strength -2 ; i++) {
             randA = getRandomInt(a.length);
@@ -120,7 +133,41 @@
         
         
         pw.value = pass.toString();
-
     }
+    
+    function generateSmall(strength){
+        var a = ['a', 'e', 'i', 'o', 'u'];
+        var b = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+        var s = ['!','%','-','_','&','#','?','(',')','*',];
+
+        var pass = "";
+        while (pass.length < 3){
+        for (i = 0; i < strength ; i++) {
+            randA = getRandomInt(a.length);
+            randB = getRandomInt(b.length);
+
+            if (pass.length === 0){
+                pass += a[randA].toUpperCase();
+            } else {
+                pass += a[randA];
+            }
+
+            
+            pass += b[randB];
+            
+
+        }    
+    }    
+
+        pass += getRandomInt(99);
+        if (strength >= 2){
+            pass += s[getRandomInt(s.length)]
+        }
+
+        
+        
+        pw.value = pass.toString();
+    }
+    
     window.onload = function () {generatePW()};
 </script>
