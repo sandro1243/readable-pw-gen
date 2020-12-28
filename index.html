@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" href="favicon.png">
+    <title>SECUREPW - Stay Safe</title>
+</head>
+
+<body>
+    <div class="main w3-card-4">
+        <div class="w3-row">
+            <div class="w3-col s12 w3-center w3-padding">
+                <img src="logo.png" style="width: 50%;">
+            </div>
+        </div>
+        <div class="w3-row" style="margin-top: 24px;">
+            <div calss="w3-col s12 w3-padding">
+                <div class="tooltip">
+                <div class="w3-center w3-round w3-white w3-card w3-padding" type="text" style="font-size: 18px;"
+                    id="password" value="">Opilia12 </div><span class="tooltiptext">Copy to Clipboard</span></div>
+
+            </div>
+        </div>
+        <div class="w3-row" style="margin-top: 46px;">
+
+            <div calss="w3-col s12 m6 w3-padding">
+                <label class="w3-label"> Strength:</label>
+                <input type="range" min="1" max="9" value="5" id="strength" class="w3-block w3-input">
+            </div>
+
+            <div calss="w3-col s12 m6 w3-padding" style="margin-top: 24px;">
+                <button class="w3-button w3-block" onclick="generatePW()">Generate!</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+    function generatePW() {
+        var strength = document.getElementById('strength').value;
+        var pw = document.getElementById('password');
+        var pass = "";
+
+        var a = ['a', 'e', 'i', 'o', 'u'];
+        var b = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+        var s = ['!','%','-','_','&','#','?','(',')','*',];
+
+        for (i = 0; i < strength -2 ; i++) {
+            randA = getRandomInt(a.length);
+            randB = getRandomInt(b.length);
+
+            if (i === 0){
+                pass += a[randA].toUpperCase();
+            } else {
+                pass += a[randA];
+            }
+
+            
+            pass += b[randB];
+            
+
+        }
+
+        pass += getRandomInt(10);
+        
+
+        if (strength >= 6){
+            pass += s[getRandomInt(s.length)]
+        }
+        
+
+        for (i = 0; i < strength -2 ; i++) {
+            randA = getRandomInt(a.length);
+            randB = getRandomInt(b.length);
+
+            if (i === 0){
+                pass += b[randB].toUpperCase();
+            } else {
+                pass += b[randB];
+            }
+
+            
+            
+            pass += a[randA];
+            
+
+        }
+
+        pass += getRandomInt(99);
+        if (strength >= 5){
+            pass += s[getRandomInt(s.length)]
+        }
+
+        
+        pw.textContent = pass;
+
+    }
+    window.onload = function () {generatePW()};
+</script>
