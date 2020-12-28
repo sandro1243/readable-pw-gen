@@ -134,6 +134,7 @@ button:hover{
 
   #password{
     transition-duration: 0.3s;
+    outline: none;
   }
   #password:hover{
       cursor: pointer;

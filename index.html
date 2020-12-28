@@ -20,8 +20,8 @@
         <div class="w3-row" style="margin-top: 24px;">
             <div calss="w3-col s12 w3-padding">
                 <div class="tooltip">
-                <div class="w3-center w3-round w3-white w3-card w3-padding" type="text" style="font-size: 18px;"
-                    id="password" value="">Opilia12 </div><span class="tooltiptext">Copy to Clipboard</span></div>
+                <input class="w3-center w3-round w3-white w3-card w3-padding w3-block w3-input" type="text" readonly onclick="copyToClipboard()" style="font-size: 18px; border:none"
+                    id="password" value="Opilia"><span id="tooltip" class="tooltiptext">Copy to Clipboard</span></div>
 
             </div>
         </div>
@@ -45,6 +45,18 @@
 
 </html>
 <script>
+    var tooltip = document.getElementById('tooltip');
+    function copyToClipboard(){
+        var pw = document.getElementById('password');
+        
+
+        pw.select();
+        pw.setSelectionRange(0,999999);
+        document.execCommand("copy");
+        pw.setSelectionRange(0,0);
+        tooltip.textContent = "Copied!";
+
+    }
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
     }
@@ -52,6 +64,8 @@
         var strength = document.getElementById('strength').value;
         var pw = document.getElementById('password');
         var pass = "";
+
+        tooltip.textContent = "Copy to Clipboard";
 
         var a = ['a', 'e', 'i', 'o', 'u'];
         var b = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
@@ -104,7 +118,8 @@
         }
 
         
-        pw.textContent = pass;
+        
+        pw.value = pass.toString();
 
     }
     window.onload = function () {generatePW()};
