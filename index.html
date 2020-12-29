@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+
+    <link rel="preload" href="fonts/poppins-300.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <link rel="preload" href="fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/w3.css">
@@ -14,12 +21,8 @@
     <meta name="copyright" content="Sandro Dach" />
     <meta http-equiv="Cache-control" content="public">
 
-    <link rel="preload" href="fonts/poppins-300-italic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-300.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-500-italic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
     
-    <link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+  
 
     <meta name="theme-color" content="#532473" />
 </head>
@@ -42,7 +45,7 @@
         <div class="w3-row" style="margin-top: 46px;">
 
             <div calss="w3-col s12 m6 w3-padding">
-                <label class="w3-label"> Strength:</label>
+                <label> Strength:</label>
                 <input type="range" min="1" max="7" value="4" id="strength" class="w3-block w3-input">
             </div>
 
@@ -57,7 +60,7 @@
     <div class="footer">
         <a target="blank" href="https://dach-solutions.de/impressum/">Impressum</a>-
         <a target="blank" href="https://dach-solutions.de/">by dach-solutions.de</a>-
-        <a>v1.1.2</a>
+        <a>v1.1.3</a>
 
     </div>
 
@@ -100,7 +103,7 @@
     function generateLarge(strength){
         var a = ['a', 'e', 'i', 'o', 'u'];
         var b = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-        var s = ['!','%','-','_','&','#','?','(',')','*',];
+        var s = "!\"#$%&'()*+,-./:;<=>?@_";
 
         var pass = "";
 
